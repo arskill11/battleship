@@ -1,0 +1,163 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2fr 7fr 1fr;
+  justify-items: center;
+  gap: 50px;
+  
+}
+
+header {
+  text-align: center;
+  font-size: 64px;
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+.content {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.board {
+  width: 450px;
+  height: 450px;
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.footer {
+  grid-area: 3 / 1 / -1 / -1;
+}
+
+.cell {
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.cell.cell-ship {
+  background-color: gray;
+}
+
+.cell.cell-missed {
+  background-color: red;
+}
+
+.cell.cell-hit {
+  background-color: green;
+}
+
+.cell.cell-sunk {
+  background-color: yellow;
+}
+
+.setup-ships-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--board-size);
+  height: calc(var(--board-size) + 25px);
+  text-align: right;
+}
+
+.setup-ship-shiplist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.setup-ship {
+height: 40px;
+position: relative;
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+align-items: center;
+background-color: lightgray;
+border: 1px solid black;
+}
+
+.setup-ship p {
+margin: 0;
+display: inline-block;
+}
+
+.setup-ship-box {
+cursor: grab;
+display: inline-flex;
+gap: 2px;
+position: relative;
+z-index: 20;
+}
+
+.setup-ship-vertical {
+flex-direction: column;
+}
+
+.setup-ship-hide div {
+background-color: rgba(0, 0, 0, 0);
+opacity: 0.5;
+}
+
+.setup-ship-dropped {
+position: absolute;
+left: -1px;
+top: -1px;
+}
+
+.ghost-ship {
+position: absolute;
+z-index: 200;
+opacity: 0.8;
+}
+
+.ghost-ship>.setup-ship-cell {
+background-color: var(--cell-hover-color);
+}
+
+.setup-ship-cell {
+width: var(--cell-size);
+height: var(--cell-size);
+background-color: var(--cell-hover-color);
+border: 1px solid var(--cell-border-color);
+}
+
+.setup-ships-options {
+display: flex;
+justify-content: space-between;
+}
+
+.setup-button-start,
+.setup-button-random {
+width: 120px;
+height: 36px;
+}
+
+.setup-button-start {
+font-weight: 600;
+font-size: 1rem;
+background-color: var(--hit-color);
+transition: transform 0.1s ease;
+}
+
+.setup-button-start-disabled {
+opacity: 0.5;
+pointer-events: none;
+}
+
+
+
+
+
