@@ -15,8 +15,6 @@ function Player(playerName, playerNumber) {
       }
       [row, col] = this.battleBot.attack(enemy);
     }
-    // const result = enemy.gameboard.receiveAttack(row, col);
-    // return result;
     const result = enemy.gameboard.receiveAttack(row, col);
     if (this.isAI){
       if (result[0] === 'hit') {

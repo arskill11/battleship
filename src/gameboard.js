@@ -45,19 +45,19 @@ function Gameboard() {
     let squaresAround = [];
     let squares = [];
     for (let i = 0; i < shipLength; i++) {
-      squares.push([row, col]);
+      squares.push([+row, +col]);
       axis === 'horizontal' ? col++ : row++;
     }
     if (axis === 'horizontal') {
-      for (let i = rowStatic - 1; i <= rowStatic + 1; i++) {
-        for (let j = colStatic - 1; j <= colStatic + shipLength + 1; j++) {
+      for (let i = +rowStatic - 1; i <= +rowStatic + 1; i++) {
+        for (let j = +colStatic - 1; j <= +colStatic + shipLength; j++) {
           squaresAround.push([i, j]);
         }
       }
     }
     else if (axis === 'vertical'){
-      for (let i = rowStatic - 1; i <= rowStatic + shipLength + 1; i++) {
-        for (let j = colStatic - 1; j <= colStatic + 1; j++) {
+      for (let i = +rowStatic - 1; i <= +rowStatic + shipLength; i++) {
+        for (let j = +colStatic - 1; j <= +colStatic + 1; j++) {
           squaresAround.push([i, j]);
         }
       }
@@ -79,8 +79,9 @@ function Gameboard() {
     })
 
     return {
-      isValid: squaresValid && squaresAroundValid,
+      isValid: squaresAroundValid,
       squares,
+      squaresAround
     }
   }
 
